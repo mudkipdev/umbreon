@@ -6,14 +6,14 @@ class ExampleCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='repeat', aliases=['copy', 'mimic'])
+    @commands.command(name='repeat', aliases=['copy', 'mimic'], help = "A simple command which repeats our input.")
     async def do_repeat(self, ctx, *, our_input: str):
         """A simple command which repeats our input.
         In rewrite Context is automatically passed to our commands as the first argument after self."""
 
         await ctx.send(our_input)
 
-    @commands.command(name='add', aliases=['plus'])
+    @commands.command(name='add', aliases=['plus'], help = "A simple command which does addition on two integer values.")
     @commands.guild_only()
     async def do_addition(self, ctx, first: int, second: int):
         """A simple command which does addition on two integer values."""
@@ -26,4 +26,4 @@ class ExampleCog(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(SimpleCog(bot))
+    bot.add_cog(ExampleCog(bot))

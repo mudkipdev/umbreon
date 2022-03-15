@@ -13,7 +13,7 @@ load_dotenv()
 
 CONFIG_FILE = 'config/config.toml'
 
-cogs = ()
+cogs = ("cogs.help",)
 
 config = toml.load(open(CONFIG_FILE))
 
@@ -32,5 +32,9 @@ class Umbreon(commands.Bot):
                 print(f'Failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
 
-bot = Umbreon(command_prefix=config['prefix'])
-bot.run(os.environ.get('TOKEN'), reconnect=True)
+    async def is_owner(self, user: discord.User):
+        return await super().is_owner(user) or user.id in self.config["owners"]
+
+if __name__ == "__main__":
+    bot = Umbreon(command_prefix=config['prefix'])
+    bot.run(os.environ.get('TOKEN'), reconnect=True)
