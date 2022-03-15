@@ -5,6 +5,7 @@ import traceback
 from discord.ext import commands
 from dotenv import load_dotenv
 import discord
+import logging
 import toml
 import os
 
@@ -12,7 +13,7 @@ load_dotenv()
 
 CONFIG_FILE = "config/config.toml"
 
-initial_extensions = (
+cogs = (
     'cogs.simple',
 )
 
@@ -36,5 +37,3 @@ class Umbreon(commands.Bot):
             super().run(os.environ.get("TOKEN"), reconnect=True)
         except Exception as e:
             print(e)
-
-
