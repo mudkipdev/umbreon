@@ -27,14 +27,14 @@ class Jeopardy(commands.Cog):
 
                 category = data[position]['category']
                 value = data[position]['value']
-                airDate = data[position]['air_date']
+                air_date = data[position]['air_date']
                 em = discord.Embed(color=config["game_color"])
                 em.title = "Jeopardy!"
-                em.add_field(name='Question', value=str(question))
+                em.add_field(name='Question', value=question)
                 em.add_field(name='Value', value=str(value))
                 em.set_thumbnail(url='https://miro.medium.com/max/10000/1*34zoBTjiSqQsq9Ptswrg0A.jpeg')
                 em.description = category
-                em.add_field(name='Air Date', value=airDate)
+                em.add_field(name='Air Date', value=air_date)
                 await ctx.send(embed=em)
 
         except (KeyError, FileNotFoundError) as e:
