@@ -13,9 +13,7 @@ load_dotenv()
 
 CONFIG_FILE = 'config/config.toml'
 
-cogs = (
-    'cogs.example',
-)
+cogs = ()
 
 config = toml.load(open(CONFIG_FILE))
 
