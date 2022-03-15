@@ -1,5 +1,5 @@
 # The prefix used for all commands.
-prefix = "+"
+prefix = "-"
 # A list of Discord IDs to use as owners. This will grant you access to commands such as jishaku.
 owners = [215290701913653248]
 
