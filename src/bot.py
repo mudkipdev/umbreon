@@ -21,11 +21,11 @@ config = toml.load(open(CONFIG_FILE))
 
 
 class Umbreon(commands.Bot):
-    def __init__(self):
-        super().__init__(command_prefix=config['prefix'])
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.config = toml.load(open(CONFIG_FILE))
 
-        for extension in initial_extensions:
+        for extension in cogs:
             try:
                 self.load_extension(extension)
             except Exception as e:
