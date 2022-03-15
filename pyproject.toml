@@ -10,6 +10,7 @@ python = "^3.9"
 "discord.py" = "^1.7.3"
 python-dotenv = "^0.19.2"
 toml = "^0.10.2"
+jishaku = "^2.3.2"
 
 [tool.poetry.dev-dependencies]
 
