@@ -40,7 +40,7 @@ class ErrorHandler(commands.Cog):
             embed.description = errors[type(exception)].format(e=exception)
         except KeyError:
             raise exception
-            traceback.print_exc()
+
         else:
             await ctx.reply(embed=embed)
 
