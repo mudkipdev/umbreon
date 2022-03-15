@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "umbreon"
+version = "0.1.0"
+description = "A fun multi-purpose Discord bot."
+authors = ["mudkipdev <86132148+mudkipdev@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+"discord.py" = "^1.7.3"
+python-dotenv = "^0.19.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
