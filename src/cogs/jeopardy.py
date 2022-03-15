@@ -49,7 +49,12 @@ class Jeopardy(commands.Cog):
             try:
                 message = await self.bot.wait_for('message', check=check, timeout=20.0)
                 ratio = fuzz.ratio(message.content.lower(), correct_answer.lower())
-                partial_ratio = fuzz.partial_ratio(message.content.lower(), correct_answer.lower())
+                try:
+                    partial_ratio = fuzz.partial_ratio(message.content.lower(), correct_answer.lower())
+
+                # Catch and ignore invalid characters that can not be parsed by fuzzy
+                except ValueError as e:
+                    continue
 
                 if len(answer.split()) >= 2:
                     if ratio >= 60 and partial_ratio >= 75:
