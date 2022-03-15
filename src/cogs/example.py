@@ -1,7 +1,7 @@
 from discord.ext import commands
 
-class SimpleCog(commands.Cog):
-    """Simple Command Structure"""
+class ExampleCog(commands.Cog):
+    """Example cog for future reference."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -18,11 +18,10 @@ class SimpleCog(commands.Cog):
     async def do_addition(self, ctx, first: int, second: int):
         """A simple command which does addition on two integer values."""
 
-        total = first + second
-        await ctx.send(f'The sum of **{first}** and **{second}**  is  **{total}**')
+        await ctx.send(f'The sum of **{first}** and **{second}**  is  **{first + second}**')
 
 
-# The setup fucntion below is neccesarry. Remember we give bot.add_cog() the name of the class in this case SimpleCog.
+# The setup fucntion below is necessary. Remember we give bot.add_cog() the name of the class in this case SimpleCog.
 # When we load the cog, we use the name of the file.
 
 

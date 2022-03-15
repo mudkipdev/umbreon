@@ -11,10 +11,10 @@ import os
 
 load_dotenv()
 
-CONFIG_FILE = "config/config.toml"
+CONFIG_FILE = 'config/config.toml'
 
 cogs = (
-    'cogs.simple',
+    'cogs.example',
 )
 
 config = toml.load(open(CONFIG_FILE))
@@ -22,7 +22,7 @@ config = toml.load(open(CONFIG_FILE))
 
 class Umbreon(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix=config["prefix"])
+        super().__init__(command_prefix=config['prefix'])
         self.config = toml.load(open(CONFIG_FILE))
 
         for extension in initial_extensions:
@@ -34,6 +34,6 @@ class Umbreon(commands.Bot):
 
     def run(self):
         try:
-            super().run(os.environ.get("TOKEN"), reconnect=True)
+            super().run(os.environ.get('TOKEN'), reconnect=True)
         except Exception as e:
             print(e)
