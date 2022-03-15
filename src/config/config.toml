@@ -4,3 +4,4 @@ prefix = "-"
 owners = [215290701913653248]
 # The color for the embeds sent by the bot.
 color = 0xFEE75C
+game_color = 0x316FB8
