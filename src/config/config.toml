@@ -8,6 +8,7 @@ owners = [215290701913653248]
 default = 0xFEE75C
 moderation = 0xED2828
 error = 0xED2828
+games = 0x316FB8
 
 [icons]
 error = "https://cdn.discordapp.com/attachments/953132947874148403/953365026411012166/Error.png"

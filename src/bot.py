@@ -13,8 +13,7 @@ load_dotenv()
 
 CONFIG_FILE = 'config/config.toml'
 
-cogs = ("cogs.help", "cogs.error")
-
+cogs = ("cogs.help", "cogs.jeopardy", "cogs.error")
 config = toml.load(open(CONFIG_FILE))
 
 

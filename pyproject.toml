@@ -11,6 +11,8 @@ python = "^3.9"
 python-dotenv = "^0.19.2"
 toml = "^0.10.2"
 jishaku = "^2.3.2"
+fuzzywuzzy = "^0.18.0"
+python-Levenshtein = "^0.12.2"
 
 [tool.poetry.dev-dependencies]
 
