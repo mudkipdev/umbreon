@@ -2,5 +2,13 @@
 prefix = "-"
 # A list of Discord IDs to use as owners. This will grant you access to commands such as jishaku.
 owners = [215290701913653248]
+
+[colors]
 # The color for the embeds sent by the bot.
-color = 0xFEE75C
+default = 0xFEE75C
+moderation = 0xED2828
+error = 0xED2828
+
+[icons]
+error = "https://cdn.discordapp.com/attachments/953132947874148403/953365026411012166/Error.png"
+moderation = "https://media.discordapp.net/attachments/953132947874148403/953365027363094579/Moderation.png"
