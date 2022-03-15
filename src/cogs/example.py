@@ -21,7 +21,7 @@ class ExampleCog(commands.Cog):
         await ctx.send(f'The sum of **{first}** and **{second}**  is  **{first + second}**')
 
 
-# The setup fucntion below is necessary. Remember we give bot.add_cog() the name of the class in this case SimpleCog.
+# The setup function below is necessary. Remember we give bot.add_cog() the name of the class in this case ExampleCog.
 # When we load the cog, we use the name of the file.
 
 
