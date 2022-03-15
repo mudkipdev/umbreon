@@ -32,8 +32,5 @@ class Umbreon(commands.Bot):
                 print(f'Failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
 
-    def run(self):
-        try:
-            super().run(os.environ.get('TOKEN'), reconnect=True)
-        except Exception as e:
-            print(e)
+bot = Umbreon(command_prefix=config['prefix'], reconnect=True)
+await bot.run(os.environ.get('TOKEN'))
