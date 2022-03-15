@@ -5,8 +5,6 @@ import discord
 from discord.ext import commands
 import json
 
-from src.bot import config
-
 
 class Jeopardy(commands.Cog):
     """A Jeopardy question answer game utilizing Levenshtein Distance to calculate answer matching (beta)."""
@@ -28,8 +26,8 @@ class Jeopardy(commands.Cog):
                 category = data[position]['category']
                 value = data[position]['value']
                 air_date = data[position]['air_date']
-                em = discord.Embed(color=config["game_color"])
-                em.title = "Jeopardy!"
+                em = discord.Embed(color=self.bot.config['color'])
+                em.title = 'Jeopardy!'
                 em.add_field(name='Question', value=question)
                 em.add_field(name='Value', value=str(value))
                 em.set_thumbnail(url='https://miro.medium.com/max/10000/1*34zoBTjiSqQsq9Ptswrg0A.jpeg')
