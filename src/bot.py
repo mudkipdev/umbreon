@@ -23,7 +23,9 @@ config = toml.load(open(CONFIG_FILE))
 class Umbreon(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.config = toml.load(open(CONFIG_FILE))
+        self.load_extension("jishaku")
 
         for extension in cogs:
             try:
@@ -32,5 +34,5 @@ class Umbreon(commands.Bot):
                 print(f'Failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
 
-bot = Umbreon(command_prefix=config['prefix'], reconnect=True)
-await bot.run(os.environ.get('TOKEN'))
+bot = Umbreon(command_prefix=config['prefix'])
+await bot.run(os.environ.get('TOKEN'), reconnect=True)
