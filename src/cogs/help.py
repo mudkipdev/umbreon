@@ -4,7 +4,7 @@ import discord
 
 class HelpCommand(commands.HelpCommand):
     async def send_bot_help(self, mapping):
-        embed = discord.Embed(title='Help', color=self.context.bot.config["color"])
+        embed = discord.Embed(title='Help', color=self.context.bot.config["default"])
 
         for cog, commands in mapping.items():
             signatures = [c.qualified_name for c in commands]
@@ -18,7 +18,7 @@ class HelpCommand(commands.HelpCommand):
         await (self.get_destination()).send(embed=embed)
 
     async def send_command_help(self, command):
-        embed = discord.Embed(title=f'Help: {command.qualified_name}', color=self.context.bot.config["color"])
+        embed = discord.Embed(title=f'Help: {command.qualified_name}', color=self.context.bot.config["default"])
         embed.description = f'```{self.get_command_signature(command)}```'
         embed.add_field(name='Description', value=command.help, inline=False)
         if command.aliases:
@@ -26,7 +26,7 @@ class HelpCommand(commands.HelpCommand):
         await (self.get_destination()).send(embed=embed)
 
     async def send_group_help(self, group):
-        embed = discord.Embed(title=f'Help: {group.qualified_name}', color=self.context.bot.config["color"])
+        embed = discord.Embed(title=f'Help: {group.qualified_name}', color=self.context.bot.config["default"])
         if group.short_doc:
             embed.add_field(name='Description', value=group.short_doc, inline=False)
         embed.add_field(name='Commands', value=' '.join([f'`{c}`' for c in group.commands]) or "(no commands)", inline=False)
