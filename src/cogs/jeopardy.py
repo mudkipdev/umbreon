@@ -26,7 +26,7 @@ class Jeopardy(commands.Cog):
                 category = data[position]['category']
                 value = data[position]['value']
                 air_date = data[position]['air_date']
-                em = discord.Embed(color=self.bot.config['default'])
+                em = discord.Embed(color=self.bot.config['colors']['games'])
                 em.title = 'Jeopardy!'
                 em.add_field(name='Question', value=question)
                 em.add_field(name='Value', value=str(value))
