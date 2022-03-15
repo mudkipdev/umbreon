@@ -1,0 +1,12 @@
+name: Actions
+on:
+    pull_request:
+    push:
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Python Linter
+        - uses: sunnysid3up/python-linter@v0.1-beta.7
+  
