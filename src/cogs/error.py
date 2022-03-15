@@ -35,12 +35,13 @@ class ErrorHandler(commands.Cog):
     async def on_command_error(self, ctx, exception: Exception):
         embed = discord.Embed(color=self.bot.config["colors"]["error"])
         embed.set_author(name="Error", icon_url=self.bot.config["icons"]["error"])
+        
         try:
             embed.description = errors[type(exception)].format(e=exception)
         except KeyError:
             traceback.print_exc()
-
-        await ctx.reply(embed=embed)
+        else:
+            await ctx.reply(embed=embed)
 
 
 def setup(bot):
