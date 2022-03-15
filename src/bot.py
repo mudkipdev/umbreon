@@ -35,4 +35,4 @@ class Umbreon(commands.Bot):
                 traceback.print_exc()
 
 bot = Umbreon(command_prefix=config['prefix'])
-await bot.run(os.environ.get('TOKEN'), reconnect=True)
+bot.run(os.environ.get('TOKEN'), reconnect=True)
