@@ -17,7 +17,7 @@ class Jeopardy(commands.Cog):
     async def jeopardy(self, ctx):
         """Generates a Jeopardy question from over 200,000 historical Jeopardy Questions."""
         try:
-            with open('JEOPARDY_QUESTIONS1.json') as f:
+            with open(self.bot.config['resources']['jeopardy_questions']) as f:
                 data = json.loads(f.read())
                 position = random.randint(0, 199999)
                 question = data[position]['question']

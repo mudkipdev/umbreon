@@ -2,6 +2,12 @@
 prefix = "-"
 # A list of Discord IDs to use as owners. This will grant you access to commands such as jishaku.
 owners = [215290701913653248]
+# A list of cogs that will be loaded when the bot has started.
+cogs = ["cogs.help", "cogs.jeopardy", "cogs.error", "cogs.moderation"]
+
+[resources]
+# The path to various resources from the src folder
+jeopardy_questions = "../res/jeopardy.json"
 
 [colors]
 # The color for the embeds sent by the bot.

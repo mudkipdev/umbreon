@@ -5,7 +5,7 @@ class ModerationCog(commands.Cog):
     """Useful commands for moderators of a Discord server."""
     def __init__(self, bot):
         self.bot = bot
-
+    
     @commands.has_permissions(kick_members = True)
     @commands.command(help = "Temporarily removes a member from the server.")
     async def kick(self, ctx, members: commands.Greedy[discord.Member], *, reason: str = ''):
