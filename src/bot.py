@@ -13,9 +13,8 @@ load_dotenv()
 
 CONFIG_FILE = 'config/config.toml'
 
-cogs = ("cogs.help", "cogs.jeopardy", "cogs.error", "cogs.moderation")
 config = toml.load(open(CONFIG_FILE))
-
+cogs = config["cogs"]
 
 class Umbreon(commands.Bot):
     def __init__(self, *args, **kwargs):
