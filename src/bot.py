@@ -4,6 +4,7 @@ import traceback
 
 from discord.ext import commands
 from dotenv import load_dotenv
+from database import Database
 import discord
 import logging
 import toml
@@ -21,7 +22,8 @@ class Umbreon(commands.Bot):
         super().__init__(*args, **kwargs)
 
         self.config = toml.load(open(CONFIG_FILE))
-        self.load_extension("jishaku")
+        self.database = Database(self)
+        self.load_extension('jishaku')
 
         for extension in cogs:
             try:
@@ -31,8 +33,8 @@ class Umbreon(commands.Bot):
                 traceback.print_exc()
 
     async def is_owner(self, user: discord.User):
-        return await super().is_owner(user) or user.id in self.config["owners"]
+        return await super().is_owner(user) or user.id in self.config['owners']
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     bot = Umbreon(command_prefix=config['prefix'])
     bot.run(os.environ.get('TOKEN'), reconnect=True)
