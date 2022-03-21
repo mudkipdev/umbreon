@@ -4,7 +4,7 @@ import traceback
 
 from discord.ext import commands
 from dotenv import load_dotenv
-from database import Database
+
 import discord
 import logging
 import toml
@@ -22,7 +22,7 @@ class Umbreon(commands.Bot):
         super().__init__(*args, **kwargs)
 
         self.config = toml.load(open(CONFIG_FILE))
-        self.database = Database(self)
+
         self.load_extension('jishaku')
 
         for extension in cogs:

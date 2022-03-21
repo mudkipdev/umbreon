@@ -20,7 +20,7 @@ class HelpCommand(commands.HelpCommand):
     async def send_command_help(self, command):
         embed = discord.Embed(title=f'Help: {command.qualified_name}', color=self.context.bot.config['colors']['default'])
         embed.description = f'```{self.get_command_signature(command)}```'
-        embed.add_field(name='Description', value=command.help, inline=False)
+        embed.add_field(name='Description', value=command.description, inline=False)
         if command.aliases:
             embed.add_field(name='Aliases', value=' '.join([f'`{c}`' for c in command.aliases]), inline=False)
         await (self.get_destination()).send(embed=embed)
