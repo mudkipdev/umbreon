@@ -43,7 +43,7 @@ class Fun(commands.Cog):
         """Updated information about Covid-19."""
         try:
             if country is None:
-                embed = discord.Embed(title="This command is used like this: ```?covid [country]```", colour=0xff0000,
+                embed = discord.Embed(title="This command is used like this: ```?covid [country]```", color=self.bot.config['colors']['default'],
                                       timestamp=ctx.message.created_at)
                 await ctx.send(embed=embed)
 
@@ -67,7 +67,7 @@ class Fun(commands.Cog):
 
                 embed2 = discord.Embed(title=f"**COVID-19 Status Of {country}**!",
                                        description="This Information Isn't Live Always, Hence It May Not Be Accurate!",
-                                       colour=0x0000ff, timestamp=ctx.message.created_at)
+                                       color=self.bot.config['colors']['default'], timestamp=ctx.message.created_at)
                 embed2.add_field(name="**Total Cases**", value=f'{total_cases:,}' if total_cases is not None else "Null",
                                  inline=True)
                 embed2.add_field(name="**Today Cases**", value=f'{today_cases:,}' if today_cases is not None else "Null",
@@ -98,7 +98,7 @@ class Fun(commands.Cog):
                 await ctx.send(embed=embed2)
 
         except:
-            embed3 = discord.Embed(title="Invalid Country Name Try Again..!", colour=0xff0000,
+            embed3 = discord.Embed(title="Invalid Country Name Try Again..!", color=self.bot.config['colors']['default'],
                                    timestamp=ctx.message.created_at)
             embed3.set_author(name="Error!")
             await ctx.send(embed=embed3)
@@ -107,7 +107,7 @@ class Fun(commands.Cog):
     async def ping(self, ctx):
         """Pong! Get the bot's response time"""
         await ctx.channel.purge(limit=1)
-        em = discord.Embed(color=discord.Color.green())
+        em = discord.Embed(color=self.bot.config['colors']['default'])
         em.title = ":ping_pong: Pong!"
         em.description = f'{round(self.bot.latency * 1000)} ms'
         await ctx.send(embed=em)
@@ -125,7 +125,7 @@ class Fun(commands.Cog):
             if resp["online"] is True:
                 embed = discord.Embed(
                     title=f"Server status for {url}",
-                    color=discord.Color.blue(),
+                    color=self.bot.config['colors']['default'],
                     description=f"Server Online!!! \n Players:{resp['players']['online']}",
                     timestamp=datetime.utcnow())
                 await ctx.send(embed=embed)
@@ -133,7 +133,7 @@ class Fun(commands.Cog):
             else:
                 embed = discord.Embed(
                     title=f"Server status for {url}",
-                    color=discord.Color.blue(),
+                    color=self.bot.config['colors']['default'],
                     description="Server is Offline!",
                     timestamp=datetime.utcnow())
                 await ctx.send(embed=embed)
