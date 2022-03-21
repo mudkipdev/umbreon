@@ -33,7 +33,7 @@ class Fun(commands.Cog):
         ]
         em = discord.Embed(color=self.bot.config["colors"]["default"])
         em.title = ":mage: The 8 ball wizard says..."
-        em.description = (random.choice(possible_responses) + ", " + ctx.message.author.mention)
+        em.description = (random.choice(possible_responses) + ", " + ctx.author.mention)
         await ctx.send(embed=em)
 
     @commands.command()
