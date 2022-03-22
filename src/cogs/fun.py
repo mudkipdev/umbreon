@@ -50,24 +50,18 @@ class Fun(commands.Cog):
         if url is None:
             return await ctx.send("Please provide a valid server URL or IP!")
         else:
-            async with aiohttp.ClientSession() as cs:
+            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as cs:
                 async with cs.get(f"https://api.mcsrvstat.us/2/{url}") as r:
                     resp = await r.json()
-
+            embed = discord.Embed(title=f"Server status for {url}",
+                                  color=self.bot.config["colors"]["default"],
+                                  timestamp=datetime.utcnow())
             if resp["online"]:
-                embed = discord.Embed(
-                    title=f"Server status for {url}",
-                    color=self.bot.config["colors"]["default"],
-                    description=f"Server Online!!! \n Players:{resp['players']['online']}",
-                    timestamp=datetime.utcnow())
+                embed.description = f"Server Online!!! \n Players:{resp['players']['online']}"
                 await ctx.send(embed=embed)
 
             else:
-                embed = discord.Embed(
-                    title=f"Server status for {url}",
-                    color=self.bot.config["colors"]["default"],
-                    description="Server is Offline!",
-                    timestamp=datetime.utcnow())
+                embed.description = "Server is Offline!"
                 await ctx.send(embed=embed)
 
 
