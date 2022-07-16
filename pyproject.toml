@@ -13,6 +13,7 @@ toml = "^0.10.2"
 jishaku = "^2.3.2"
 fuzzywuzzy = "^0.18.0"
 python-Levenshtein = "^0.12.2"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 
