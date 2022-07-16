@@ -13,18 +13,19 @@ import toml
 
 load_dotenv()
 
-CONFIG_FILE = "config/config.toml"
+CONFIG_FILE = "config.toml"
 
 config = toml.load(open(CONFIG_FILE))
 cogs = config["cogs"]
-
 
 class Umbreon(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.config = toml.load(open(CONFIG_FILE))
-        self.client_session = asyncio.get_event_loop().run_until_complete(self.create_client_session())
+        self.client_session = asyncio.get_event_loop().run_until_complete(
+            self.create_client_session()
+        )
         self.load_extension("jishaku")
 
         for extension in cogs:
@@ -43,7 +44,6 @@ class Umbreon(commands.Bot):
     async def close(self) -> None:
         await self.client_session.close()
         await super().close()
-
 
 if __name__ == "__main__":
     bot = Umbreon(command_prefix=config["prefix"])

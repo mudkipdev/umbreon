@@ -3,7 +3,7 @@ import traceback
 import discord
 
 errors = {
-    commands.MissingRequiredArgument: "{e.param} is a required argument.",
+    commands.MissingRequiredArgument: "{e.param.name} is a required argument.",
     commands.BadArgument: "Invalid argument.",
     commands.PrivateMessageOnly: "This command can only be used in private messages.",
     commands.NoPrivateMessage: "This command can only be used in a server.",
@@ -23,9 +23,8 @@ errors = {
     commands.MissingRole: "You don't have any of the required roles to use this command.",
     commands.BotMissingRole: "I don't have the required role to execute this command.",
     commands.BotMissingRole: "I don't have the required role to execute this command.",
-    commands.NSFWChannelRequired: "This command can only be used in an NSFW channel."
+    commands.NSFWChannelRequired: "This command can only be used in an NSFW channel.",
 }
-
 
 class ErrorHandler(commands.Cog):
     def __init__(self, bot):
@@ -43,7 +42,6 @@ class ErrorHandler(commands.Cog):
 
         else:
             await ctx.reply(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(ErrorHandler(bot))

@@ -7,7 +7,7 @@ cogs = ["cogs.help", "cogs.jeopardy", "cogs.error", "cogs.moderation", "cogs.fun
 
 [resources]
 # The path to various resources from the src folder
-jeopardy_questions = "../res/jeopardy.json"
+jeopardy_questions = "res/jeopardy.json"
 
 [colors]
 # The color for the embeds sent by the bot.
