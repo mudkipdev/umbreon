@@ -19,10 +19,10 @@ config = toml.load(open(CONFIG_FILE))
 cogs = config["cogs"]
 
 class Umbreon(commands.Bot):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.config = toml.load(open(CONFIG_FILE))
+        self.config = config
         self.client_session = asyncio.get_event_loop().run_until_complete(
             self.create_client_session()
         )
@@ -46,5 +46,7 @@ class Umbreon(commands.Bot):
         await super().close()
 
 if __name__ == "__main__":
-    bot = Umbreon(command_prefix=config["prefix"])
+    intents = discord.Intents.default()
+
+    bot = Umbreon(command_prefix=config["prefix"], intents=discord.Intents.default())
     bot.run(os.environ.get("TOKEN"), reconnect=True)
